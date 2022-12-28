@@ -1,1 +1,1 @@
-#простой js music проигрыватель. 
+#idle js music(track) player. 
