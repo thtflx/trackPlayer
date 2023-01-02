@@ -140,47 +140,47 @@
 
 // !TRY
 // todo 1.
-const musicContainer = document.getElementById('music-container');
-const prevBtn = document.getElementById('prev');
-const playBtn = document.getElementById('play');
-const nextBtn = document.getElementById('next');
+// const musicContainer = document.getElementById('music-container');
+// const prevBtn = document.getElementById('prev');
+// const playBtn = document.getElementById('play');
+// const nextBtn = document.getElementById('next');
+// const audio = document.getElementById('audio');
+// const title = document.getElementById('title');
+// const cover = document.getElementById('cover');
 
-const audio = document.getElementById('audio');
-const progressContainer = document.getElementById('progress-container');
-const progress = document.getElementById('progress');
-const title = document.getElementById('title');
-const cover = document.getElementById('cover');
-const currentTime = document.querySelector('#currTime');
-const durTime = document.querySelector('#durTime');
+// const progressContainer = document.getElementById('progress-container');
+// const progress = document.getElementById('progress');
+// const currentTime = document.querySelector('#currTime');
+// const durTime = document.querySelector('#durTime');
 
 
 
 // todo 2.
-const songs = [
-    'Juice WRLD Ft Benny Blanco - Real Shit',
-    'Lil Baby, Lil Durk ft Rodwave - Rich Off Pain',
-    'NEFFEX - New Year, New Me',
-    'Polo G – I Know'
-];
+// const songs = [
+//     'Juice WRLD Ft Benny Blanco - Real Shit',
+//     'Lil Baby, Lil Durk ft Rodwave - Rich Off Pain',
+//     'NEFFEX - New Year, New Me',
+//     'Polo G – I Know'
+// ];
 
 
 
 // todo 3.
-let songIndex = 0;
+// let songIndex = 0;
 
 
 
 // todo 4.
-loadSong(songs[songIndex]);
+// loadSong(songs[songIndex]);
 
 
 
 // todo 5.
-function loadSong(song) {
-    title.innerText = song;
-    audio.src = `music/${song}.mp3`;
-    cover.src = `images/${song}.jpg`;
-}
+// function loadSong(song) {
+//     title.innerText = song;
+//     audio.src = `music/${song}.mp3`;
+//     cover.src = `images/${song}.jpg`;
+// }
 
 // function loadSong(song) {
 //     title.innerHTML = song;
@@ -209,13 +209,13 @@ function loadSong(song) {
 
 
 // todo 6.
-function playSong() {
-    musicContainer.classList.add('play');
-    playBtn.querySelector('i.fas').classList.remove('fa-play');
-    playBtn.querySelector('i.fas').classList.add('fa-pause');
+// function playSong() {
+//     musicContainer.classList.add('play');
+//     playBtn.querySelector('i.fas').classList.remove('fa-play');
+//     playBtn.querySelector('i.fas').classList.add('fa-pause');
 
-    audio.play();
-}
+//     audio.play();
+// }
 
 // function playSong() {
 //     musicContainer.classList.add('play');
@@ -252,13 +252,13 @@ function playSong() {
 
 
 // todo 7.
-function pauseSong() {
-    musicContainer.classList.remove('play');
-    playBtn.querySelector('i.fas').classList.add('fa-play');
-    playBtn.querySelector('i.fas').classList.remove('fa-pause');
+// function pauseSong() {
+//     musicContainer.classList.remove('play');
+//     playBtn.querySelector('i.fas').classList.add('fa-play');
+//     playBtn.querySelector('i.fas').classList.remove('fa-pause');
 
-    audio.pause();
-}
+//     audio.pause();
+// }
 
 // function pauseSong() {
 //     musicContainer.classList.add('pause');
@@ -279,17 +279,17 @@ function pauseSong() {
 
 
 // todo 8.
-function prevSong() {
-    songIndex--;
+// function prevSong() {
+//     songIndex--;
 
-    if (songIndex < 0) {
-        songIndex = songs.length - 1;
-    }
+//     if (songIndex < 0) {
+//         songIndex = songs.length - 1;
+//     }
 
-    loadSong(songs[songIndex]);
+//     loadSong(songs[songIndex]);
 
-    playSong();
-}
+//     playSong();
+// }
 
 // function prevSong() {
 //     songIndex--;
@@ -342,17 +342,17 @@ function prevSong() {
 
 
 // todo 9.
-function nextSong() {
-    songIndex++;
+// function nextSong() {
+//     songIndex++;
 
-    if (songIndex > songs.length - 1) {
-        songIndex = 0;
-    }
+//     if (songIndex > songs.length - 1) {
+//         songIndex = 0;
+//     }
 
-    loadSong(songs[songIndex]);
+//     loadSong(songs[songIndex]);
 
-    playSong();
-}
+//     playSong();
+// }
 
 // function nextSong() {
 //     songIndex++;
@@ -369,15 +369,15 @@ function nextSong() {
 
 
 // todo 10.
-playBtn.addEventListener('click', () => {
-    const isPlaying = musicContainer.classList.contains('play');
+// playBtn.addEventListener('click', () => {
+//     const isPlaying = musicContainer.classList.contains('play');
 
-    if (isPlaying) {
-        pauseSong();
-    } else {
-        playSong();
-    }
-});
+//     if (isPlaying) {
+//         pauseSong();
+//     } else {
+//         playSong();
+//     }
+// });
 
 // playBtn.addEventListener('click', () => {
 //     const isPlaying = musicContainer.classList.contains('play');
@@ -402,8 +402,8 @@ playBtn.addEventListener('click', () => {
 
 
 // todo 11.
-prevBtn.addEventListener('click', prevSong);
-nextBtn.addEventListener('click', nextSong);
+// prevBtn.addEventListener('click', prevSong);
+// nextBtn.addEventListener('click', nextSong);
 
 // prevBtn.addEventListener('click',prevSong);
 // nextBtn.addEventListener('click',nextSong);
@@ -411,9 +411,108 @@ nextBtn.addEventListener('click', nextSong);
 
 
 
-// jahongir rahmonovdan qanaqa qilib tanish bilish orttirgani haqida so'raysan.
-// tushunish jarayoni qanaqa bo'ladi. Kodni samostoyatelno yozgandan keyin, shu haqida yozish.
-// 1. Kod juda qo'rqinchli va tushunarsiz ko'rinadi. Hamda juda katta hajmliday tuyuladi.
-// 2. Ichidagi mahluqlar bilan bitta-bitta tanishib chiqasiz, yaxshiroq tanishib chiqasiz (ozzgina tushuncha paydo bo'lsa, kifoya).
-// 3. Kodni yozishikni boshlaymiz. Qadam va qadam, bu yerda shoshilmaslik juda katta rolni o'ynaydi.
-// 4.
+
+
+
+
+
+// ! try.
+// // 1 - elementlarni topib olamiz.
+// const musicContainer = document.querySelector('#music-container');
+// const title = document.querySelector('#title');
+// const audio = document.querySelector('#audio');
+// const cover = document.querySelector('#cover');
+// const prevBtn = document.querySelector('#prev');
+// const nextBtn = document.querySelector('#next');
+// const playBtn = document.querySelector('#play');
+
+
+// // 2 - songsni bitta massivga yig'amiz.
+// const songs = [
+//     'Juice WRLD Ft Benny Blanco - Real Shit',
+//     'Lil Baby, Lil Durk ft Rodwave - Rich Off Pain',
+//     'NEFFEX - New Year, New Me',
+//     'Polo G – I Know'
+// ];
+
+
+// // 3 - song'ga index beramiz.
+// let songIndex = 0;
+
+
+// // 4 - loadSong'ga songs va indexini beramiz.
+// loadSong(songs[songIndex]);
+
+
+// // 5 - loadSong func.
+// function loadSong(song) {
+//     title.innerHTML = song;
+//     audio.src = `music/${song}.mp3`;
+//     cover.src = `images/${song}.jpg`;
+// }
+
+
+// // 6 - playSong func.
+// function playSong() {
+//     musicContainer.classList.add('play');
+//     playBtn.querySelector('i.fas').classList.add('fa-pause');
+//     playBtn.querySelector('i.fas').classList.remove('fa-play');
+
+//     audio.play();
+// }
+
+
+// // 7 - pauseSong func.
+// function pauseSong() {
+//     musicContainer.classList.remove('play');
+//     playBtn.querySelector('i.fas').classList.remove('fa-pause');
+//     playBtn.querySelector('i.fas').classList.add('fa-play');
+
+//     audio.pause();
+// }
+
+
+// // 8 - prevSong func.
+// function prevSong() {
+//     songIndex--;
+
+//     if (songIndex < 0) {
+//         songIndex = songs.length - 1;
+//     }
+
+//     loadSong(songs[songIndex]);
+
+//     playSong();
+// }
+
+
+// // 9 - nextSong func.
+// function nextSong() {
+//     songIndex++;
+
+//     if (songIndex > songs.length - 1) {
+//         songIndex = 0
+//     }
+
+//     loadSong(songs[songIndex]);
+
+//     playSong();
+// }
+
+
+// // 10 - playBtn ga addEL qo'shish.
+// playBtn.addEventListener('click', () => {
+//     const isPlaying = musicContainer.classList.contains('play');
+
+//     if (isPlaying) {
+//         pauseSong();
+
+//     } else {
+//         playSong();
+//     }
+// });
+
+
+// // 11 - nextBtn va prevBtn ga addEL qo'shish.
+// nextBtn('click', nextSong);
+// prevBtn('click', prevSong);
