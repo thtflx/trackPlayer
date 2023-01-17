@@ -1,138 +1,138 @@
-// !(1) Find elements
-const musicContainer = document.getElementById('music-container');
-const playBtn = document.getElementById('play');
-const prevBtn = document.getElementById('prev');
-const nextBtn = document.getElementById('next');
+// // !(1) Find elements
+// const musicContainer = document.getElementById('music-container');
+// const playBtn = document.getElementById('play');
+// const prevBtn = document.getElementById('prev');
+// const nextBtn = document.getElementById('next');
 
-const audio = document.getElementById('audio');
-const progressContainer = document.getElementById('progress-container');
-const progress = document.getElementById('progress');
-const title = document.getElementById('title');
-const cover = document.getElementById('cover');
-const currTime = document.querySelector('#currTime');
-const durTime = document.querySelector('#durTime');
-
-
-// !(2) Song titles
-const songs = [
-    'Juice WRLD Ft Benny Blanco - Real Shit',
-    'Lil Baby, Lil Durk ft Rodwave - Rich Off Pain',
-    'NEFFEX - New Year, New Me',
-    'Polo G – I Know'
-];
+// const audio = document.getElementById('audio');
+// const progressContainer = document.getElementById('progress-container');
+// const progress = document.getElementById('progress');
+// const title = document.getElementById('title');
+// const cover = document.getElementById('cover');
+// const currTime = document.querySelector('#currTime');
+// const durTime = document.querySelector('#durTime');
 
 
-// !(3) Keep track of song
-let songIndex = 0;
+// // !(2) Song titles
+// const songs = [
+//     'Juice WRLD Ft Benny Blanco - Real Shit',
+//     'Lil Baby, Lil Durk ft Rodwave - Rich Off Pain',
+//     'NEFFEX - New Year, New Me',
+//     'Polo G – I Know'
+// ];
 
 
-// !(4) Initially load song details into DOM
-loadSong(songs[songIndex]);
+// // !(3) Keep track of song
+// let songIndex = 0;
 
 
-// !(5) Update song details
-function loadSong(song) {
-    title.innerText = song;
-    audio.src = `music/${song}.mp3`;
-    cover.src = `images/${song}.jpg`;
-}
+// // !(4) Initially load song details into DOM
+// loadSong(songs[songIndex]);
 
 
-// !(7) Play song
-function playSong() {
-    musicContainer.classList.add('play');
-    playBtn.querySelector('i.fas').classList.remove('fa-play');
-    playBtn.querySelector('i.fas').classList.add('fa-pause');
-
-    audio.play();
-}
+// // !(5) Update song details
+// function loadSong(song) {
+//     title.innerText = song;
+//     audio.src = `music/${song}.mp3`;
+//     cover.src = `images/${song}.jpg`;
+// }
 
 
-// !(8) Pause song
-function pauseSong() {
-    musicContainer.classList.remove('play');
-    playBtn.querySelector('i.fas').classList.add('fa-play');
-    playBtn.querySelector('i.fas').classList.remove('fa-pause');
+// // !(7) Play song
+// function playSong() {
+//     musicContainer.classList.add('play');
+//     playBtn.querySelector('i.fas').classList.remove('fa-play');
+//     playBtn.querySelector('i.fas').classList.add('fa-pause');
 
-    audio.pause();
-}
-
-
-// !(9) Previous song
-function prevSong() {
-    songIndex--;
-
-    if (songIndex < 0) {
-        songIndex = songs.length - 1;
-    }
-
-    loadSong(songs[songIndex]);
-
-    playSong();
-}
+//     audio.play();
+// }
 
 
-// !(10) Next song
-function nextSong() {
-    songIndex++;
+// // !(8) Pause song
+// function pauseSong() {
+//     musicContainer.classList.remove('play');
+//     playBtn.querySelector('i.fas').classList.add('fa-play');
+//     playBtn.querySelector('i.fas').classList.remove('fa-pause');
 
-    if (songIndex > songs.length - 1) {
-        songIndex = 0;
-    }
-
-    loadSong(songs[songIndex]);
-
-    playSong();
-}
+//     audio.pause();
+// }
 
 
-// !(13) Event listeners
-playBtn.addEventListener('click', () => {
-    const isPlaying = musicContainer.classList.contains('play');
+// // !(9) Previous song
+// function prevSong() {
+//     songIndex--;
 
-    if (isPlaying) {
-        pauseSong();
-    } else {
-        playSong();
-    }
-});
+//     if (songIndex < 0) {
+//         songIndex = songs.length - 1;
+//     }
 
+//     loadSong(songs[songIndex]);
 
-// !(14) Change song
-prevBtn.addEventListener('click', prevSong);
-nextBtn.addEventListener('click', nextSong);
+//     playSong();
+// }
 
 
-// KERAK EMAS.
-// !(11) Update progress bar
-function updateProgress(e) {
-    const { duration, currentTime } = e.srcElement;
-    const progressPercent = (currentTime / duration) * 100;
-    progress.style.width = `${progressPercent}%`;
-}
+// // !(10) Next song
+// function nextSong() {
+//     songIndex++;
 
-// !(12) Set progress bar
-function setProgress(e) {
-    const width = this.clientWidth;
-    const clickX = e.offsetX;
-    const duration = audio.duration;
+//     if (songIndex > songs.length - 1) {
+//         songIndex = 0;
+//     }
 
-    audio.currentTime = (clickX / width) * duration;
-}
+//     loadSong(songs[songIndex]);
+
+//     playSong();
+// }
 
 
-// KERAK EMAS.
-// !(15) Time/song update
-audio.addEventListener('timeupdate', updateProgress);
+// // !(13) Event listeners
+// playBtn.addEventListener('click', () => {
+//     const isPlaying = musicContainer.classList.contains('play');
 
-// !(16) Click on progress bar
-progressContainer.addEventListener('click', setProgress);
+//     if (isPlaying) {
+//         pauseSong();
+//     } else {
+//         playSong();
+//     }
+// });
 
-// !(17) Song ends
-audio.addEventListener('ended', nextSong);
 
-// !(18) Time of song
-audio.addEventListener('timeupdate', DurTime);
+// // !(14) Change song
+// prevBtn.addEventListener('click', prevSong);
+// nextBtn.addEventListener('click', nextSong);
+
+
+// // KERAK EMAS.
+// // !(11) Update progress bar
+// function updateProgress(e) {
+//     const { duration, currentTime } = e.srcElement;
+//     const progressPercent = (currentTime / duration) * 100;
+//     progress.style.width = `${progressPercent}%`;
+// }
+
+// // !(12) Set progress bar
+// function setProgress(e) {
+//     const width = this.clientWidth;
+//     const clickX = e.offsetX;
+//     const duration = audio.duration;
+
+//     audio.currentTime = (clickX / width) * duration;
+// }
+
+
+// // KERAK EMAS.
+// // !(15) Time/song update
+// audio.addEventListener('timeupdate', updateProgress);
+
+// // !(16) Click on progress bar
+// progressContainer.addEventListener('click', setProgress);
+
+// // !(17) Song ends
+// audio.addEventListener('ended', nextSong);
+
+// // !(18) Time of song
+// audio.addEventListener('timeupdate', DurTime);
 
 
 
@@ -154,6 +154,16 @@ audio.addEventListener('timeupdate', DurTime);
 // const durTime = document.querySelector('#durTime');
 
 
+// * try-1st.
+const musicContainer = document.querySelector('#music-container'),
+    prevBtn = document.querySelector('#prev'),
+    playBtn = document.querySelector('#play'),
+    nextBtn = document.querySelector('#next'),
+    audio = document.querySelector('#audio'),
+    title = document.querySelector('#title'),
+    coverImg = document.querySelector('#cover');
+
+
 
 // todo 2.
 // const songs = [
@@ -163,15 +173,29 @@ audio.addEventListener('timeupdate', DurTime);
 //     'Polo G – I Know'
 // ];
 
+// * try-2nd.
+const songs = [
+    'Juice WRLD Ft Benny Blanco - Real Shit',
+    'Lil Baby, Lil Durk ft Rodwave - Rich Off Pain',
+    'NEFFEX - New Year, New Me',
+    'Polo G – I Know'
+];
+
+
 
 
 // todo 3.
 // let songIndex = 0;
 
+// *try-3rd.
+let songIndex = 0;
 
 
 // todo 4.
 // loadSong(songs[songIndex]);
+
+// *try-4th.
+loadSong(songs[songIndex]);
 
 
 
@@ -199,6 +223,21 @@ audio.addEventListener('timeupdate', DurTime);
 //     audio.src = `music/${song}.mp3`;
 //     cover.src = `images/${song}.jpg`;
 // }
+
+// function loadSong(song) {
+//     title.innerHTML = song;
+//     audio.src = `music/${song}.mp3`;
+//     cover.src = `images/${song}.jpg`;
+// }
+
+
+// *try-5th.
+function loadSong(song) {
+    title.innerHTML = song;
+    audio.src = `music/${song}.mp3`;
+    cover.src = `images/${song}.jpg`;
+}
+
 
 // function loadSong(song) {
 //     title.innerHTML = song;
@@ -249,6 +288,15 @@ audio.addEventListener('timeupdate', DurTime);
 //     audio.play();
 // }
 
+// * try-6th.
+function playSong() {
+    musicContainer.classList.add('play');
+    playBtn.querySelector('i.fas').classList.add('fa-pause');
+    playBtn.querySelector('i.fas').classList.remove('fa-play');
+
+    audio.play();
+}
+
 
 
 // todo 7.
@@ -276,6 +324,15 @@ audio.addEventListener('timeupdate', DurTime);
 //     audio.pause();
 // }
 
+
+// * try-7th.
+function pauseSong() {
+    musicContainer.classList.add('pause');
+    playBtn.querySelector('i.fas').classList.add('fa-play');
+    playBtn.querySelector('i.fas').classList.remove('fa-pause');
+
+    audio.pause();
+}
 
 
 // todo 8.
@@ -340,6 +397,19 @@ audio.addEventListener('timeupdate', DurTime);
 // }
 
 
+// * try-8th.
+function prevSong() {
+    songIndex--;
+
+    if (songIndex < 0) {
+        songIndex = songs.length - 1;
+    }
+
+    loadSong(songs[songIndex]);
+
+    playSong();
+}
+
 
 // todo 9.
 // function nextSong() {
@@ -366,6 +436,19 @@ audio.addEventListener('timeupdate', DurTime);
 //     playSong();
 // }
 
+
+// * try-9th.
+function nextSong() {
+    songIndex++;
+
+    if (songIndex > songs.length - 1) {
+        songIndex = 0;
+    }
+
+    loadSong(songs[songIndex]);
+
+    playSong();
+}
 
 
 // todo 10.
@@ -400,6 +483,18 @@ audio.addEventListener('timeupdate', DurTime);
 // });
 
 
+// * try-10th.
+playBtn.addEventListener('click', () => {
+    const isPlaying = musicContainer.classList.contains('play');
+
+    if (isPlaying) {
+        pauseSong();
+    } else {
+        playSong();
+    }
+});
+
+
 
 // todo 11.
 // prevBtn.addEventListener('click', prevSong);
@@ -409,7 +504,9 @@ audio.addEventListener('timeupdate', DurTime);
 // nextBtn.addEventListener('click',nextSong);
 
 
-
+// * try-11th.
+prevBtn.addEventListener('click', prevSong);
+nextBtn.addEventListener('click', nextSong);
 
 
 
